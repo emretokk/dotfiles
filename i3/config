@@ -110,16 +110,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: "
-set $ws10 "10: "
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -180,7 +180,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Display Wallpaper
-exec_always feh --bg-fill /home/emre/Pictures/Wallpapers/manjaro1.jpg 
+exec_always feh --bg-fill /home/emre/Pictures/Wallpapers/bg3.jpg 
 
 # Keybinding for i3lock
 bindsym $mod+x exec i3lock
@@ -210,23 +210,22 @@ client.background       #F8F8F2
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-bar {
-  status_command i3status -c "/home/emre/.config/i3status/i3status.conf"
-  i3bar_command i3bar --transparency
-  tray_output none 
-  colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
-
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
-
-}
+#bar {
+#  status_command i3status -c "/home/emre/.config/i3status/i3status.conf"
+#  i3bar_command i3bar --transparency
+#  tray_output none 
+#  colors {
+#    background #282A36
+#    statusline #F8F8F2
+#    separator  #44475A
+#
+#    focused_workspace  #44475A #44475A #F8F8F2
+#    active_workspace   #282A36 #44475A #F8F8F2
+#    inactive_workspace #282A36 #282A36 #BFBFBF
+#    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#    binding_mode       #FF5555 #FF5555 #F8F8F2
+#  }   
+#}
 
 # Dmenu Run
 # bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu'"
@@ -248,3 +247,23 @@ default_border pixel 2
 
 # enable floating mode for all XTerm windows
 # for_window [class="XTerm"] floating enable
+
+# Polybar Lanch
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+gaps inner 10
+gaps outer 10
+
+# smart_gaps on
+
+
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+#
+# ## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
