@@ -374,7 +374,7 @@ interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.green}
 format = <label>
-exec = python .config/polybar/spotify_status.py -f '{artist}: {song}' -t 42
+exec = python3 .config/polybar/spotify_status.py -f '{artist}: {song}' -t 42
 format-underline = ${colors.green}
 click-left = playerctl --player=spotify play-pause 
 click-right = playerctl --player=spotify next 
