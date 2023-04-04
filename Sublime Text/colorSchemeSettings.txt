@@ -1,0 +1,17 @@
+// Im using default monokai color scheme 
+// I only modify the background color
+
+{
+	"variables":
+	{
+	},
+	"globals":
+	{
+		"background": "#141821",
+	},
+	"rules":
+	[
+		
+	]
+}
+

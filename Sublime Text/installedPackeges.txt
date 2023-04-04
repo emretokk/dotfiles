@@ -1,0 +1,14 @@
+package control
+live server
+ayu
+A file icon
+fileicons
+fileicons mono
+icon fonts
+icon fonts legacy
+icon font snippets
+svg icons
+svg icon  snippets
+unicon
+spotifyplayer
+
